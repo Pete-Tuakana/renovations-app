@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Renovations App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Renovation Command Center</h1>
+
+  <section>
+    <h2>Add Project</h2>
+    <input type="text" id="title" placeholder="Project title">
+    
+    <label>Importance (1–5)</label>
+    <input type="number" id="importance" min="1" max="5">
+
+    <label>Hours Required</label>
+    <input type="number" id="hoursRequired" min="1">
+
+    <label>Deadline</label>
+    <input type="date" id="deadline">
+
+    <button id="addProjectBtn">Add Project</button>
+  </section>
+
+  <section>
+    <h2>Prioritized Projects</h2>
+    <ul id="projectList"></ul>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
