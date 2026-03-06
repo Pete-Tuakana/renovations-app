@@ -1,5 +1,24 @@
+// Firebase imports
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// 🔹 Paste your firebaseConfig below
+const firebaseConfig = {
+  apiKey: "PASTE_HERE",
+  authDomain: "PASTE_HERE",
+  projectId: "PASTE_HERE",
+  storageBucket: "PASTE_HERE",
+  messagingSenderId: "PASTE_HERE",
+  appId: "PASTE_HERE"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 let projects = [];
 
+// Priority Logic
 function calculatePriority(project) {
   const today = new Date();
   const deadline = new Date(project.deadline);
@@ -16,6 +35,7 @@ function calculatePriority(project) {
   return (project.importance * 3) + urgencyScore - (project.hoursRequired / 2);
 }
 
+// Render
 function renderProjects() {
   const list = document.getElementById("projectList");
   list.innerHTML = "";
@@ -29,7 +49,20 @@ function renderProjects() {
   });
 }
 
-document.getElementById("addProjectBtn").addEventListener("click", () => {
+// Load Projects from Firestore
+async function loadProjects() {
+  projects = [];
+  const querySnapshot = await getDocs(collection(db, "projects"));
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    data.priority = calculatePriority(data);
+    projects.push(data);
+  });
+  renderProjects();
+}
+
+// Add Project
+document.getElementById("addProjectBtn").addEventListener("click", async () => {
   const title = document.getElementById("title").value;
   const importance = parseInt(document.getElementById("importance").value);
   const hoursRequired = parseInt(document.getElementById("hoursRequired").value);
@@ -47,8 +80,15 @@ document.getElementById("addProjectBtn").addEventListener("click", () => {
     deadline
   };
 
-  project.priority = calculatePriority(project);
+  await addDoc(collection(db, "projects"), project);
 
-  projects.push(project);
-  renderProjects();
+  document.getElementById("title").value = "";
+  document.getElementById("importance").value = "";
+  document.getElementById("hoursRequired").value = "";
+  document.getElementById("deadline").value = "";
+
+  loadProjects();
 });
+
+// Initial load
+loadProjects();
