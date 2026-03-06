@@ -2,14 +2,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// 🔹 Paste your firebaseConfig below
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "PASTE_HERE",
-  authDomain: "PASTE_HERE",
-  projectId: "PASTE_HERE",
-  storageBucket: "PASTE_HERE",
-  messagingSenderId: "PASTE_HERE",
-  appId: "PASTE_HERE"
+  apiKey: "AIzaSyCHXej4P9Bximr3dLA3A4GbF-R3femko1o",
+  authDomain: "reno-app-91ded.firebaseapp.com",
+  projectId: "reno-app-91ded",
+  storageBucket: "reno-app-91ded.firebasestorage.app",
+  messagingSenderId: "947893360118",
+  appId: "1:947893360118:web:e0af122d90471665fd63d7"
 };
 
 // Initialize Firebase
