@@ -54,10 +54,16 @@ async function loadProjects() {
   projects = [];
   const querySnapshot = await getDocs(collection(db, "projects"));
   querySnapshot.forEach((doc) => {
-    const data = doc.data();
-    data.priority = calculatePriority(data);
-    projects.push(data);
-  });
+  const data = doc.data();
+
+  // Skip incomplete records
+  if (!data.title || !data.importance || !data.hoursRequired || !data.deadline) {
+    return;
+  }
+
+  data.priority = calculatePriority(data);
+  projects.push(data);
+});
   renderProjects();
 }
 
