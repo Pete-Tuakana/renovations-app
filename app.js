@@ -44,7 +44,7 @@ function renderProjects() {
 
   projects.forEach(project => {
     const li = document.createElement("li");
-    li.textContent = `${project.title} — Score: ${project.priority.toFixed(1)}`;
+    li.textContent = `${project.title} | ${project.hoursRequired} hrs | Due: ${project.deadline}`;
     list.appendChild(li);
   });
 }
