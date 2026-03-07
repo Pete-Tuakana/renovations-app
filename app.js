@@ -67,6 +67,29 @@ function filterByAvailableTime() {
 
   filteredProjects.sort((a, b) => b.priority - a.priority);
 
+const recommendationBox = document.getElementById("recommendedProject");
+
+if (filteredProjects.length > 0) {
+
+  const bestProject = filteredProjects[0];
+
+  const date = new Date(bestProject.deadline);
+  const formattedDate = date.toLocaleDateString("en-AU", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  });
+
+  recommendationBox.textContent =
+    `${bestProject.title} | ${bestProject.hoursRequired} hrs | Due: ${formattedDate}`;
+
+} else {
+
+  recommendationBox.textContent =
+    "No projects fit the available time.";
+
+}
+  
   filteredProjects.forEach(project => {
 
     const li = document.createElement("li");
