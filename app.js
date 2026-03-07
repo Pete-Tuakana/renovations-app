@@ -86,8 +86,12 @@ function filterByAvailableTime() {
     year: "numeric"
   });
 
-  recommendationBox.textContent =
-    `${bestProject.title} | ${bestProject.hoursRequired} hrs | Due: ${bestFormattedDate}`;
+  recommendationBox.innerHTML = `
+🎯 <strong>Recommended Project</strong><br>
+${bestProject.title}<br>
+Time: ${bestProject.hoursRequired} hrs<br>
+Due: ${bestFormattedDate}
+`;
 
   // Render filtered list
   filteredProjects.forEach(project => {
