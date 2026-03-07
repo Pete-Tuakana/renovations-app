@@ -43,21 +43,30 @@ function renderProjects() {
   projects.sort((a, b) => b.priority - a.priority);
 
   projects.forEach(project => {
+
     const li = document.createElement("li");
 
-const projectText = document.createElement("span");
-projectText.textContent =
-`${project.title} | ${project.hoursRequired} hrs | Due: ${formattedDate}`;
+    const date = new Date(project.deadline);
+    const formattedDate = date.toLocaleDateString("en-AU", {
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    });
 
-const completeBtn = document.createElement("button");
-completeBtn.textContent = "Complete";
+    const projectText = document.createElement("span");
+    projectText.textContent =
+      `${project.title} | ${project.hoursRequired} hrs | Due: ${formattedDate}`;
 
-completeBtn.onclick = () => completeProject(project.id);
+    const completeBtn = document.createElement("button");
+    completeBtn.textContent = "Complete";
 
-li.appendChild(projectText);
-li.appendChild(completeBtn);
+    completeBtn.onclick = () => completeProject(project.id);
 
-list.appendChild(li);
+    li.appendChild(projectText);
+    li.appendChild(completeBtn);
+
+    list.appendChild(li);
+
   });
 }
 
