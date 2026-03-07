@@ -49,6 +49,43 @@ function renderProjects() {
   });
 }
 
+function filterByAvailableTime() {
+
+  const availableTime = parseFloat(document.getElementById("availableTime").value);
+
+  if (!availableTime) {
+    alert("Enter available time.");
+    return;
+  }
+
+  const filteredProjects = projects.filter(project =>
+    project.hoursRequired <= availableTime
+  );
+
+  const list = document.getElementById("projectList");
+  list.innerHTML = "";
+
+  filteredProjects.sort((a, b) => b.priority - a.priority);
+
+  filteredProjects.forEach(project => {
+
+    const li = document.createElement("li");
+
+    const date = new Date(project.deadline);
+    const formattedDate = date.toLocaleDateString("en-AU", {
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    });
+
+    li.textContent = `${project.title} | ${project.hoursRequired} hrs | Due: ${formattedDate}`;
+
+    list.appendChild(li);
+
+  });
+
+}
+
 // Load Projects from Firestore
 async function loadProjects() {
   projects = [];
@@ -98,3 +135,5 @@ document.getElementById("addProjectBtn").addEventListener("click", async () => {
 
 // Initial load
 loadProjects();
+
+document.getElementById("filterBtn").addEventListener("click", filterByAvailableTime);
