@@ -44,8 +44,20 @@ function renderProjects() {
 
   projects.forEach(project => {
     const li = document.createElement("li");
-    li.textContent = `${project.title} | ${project.hoursRequired} hrs | Due: ${project.deadline}`;
-    list.appendChild(li);
+
+const projectText = document.createElement("span");
+projectText.textContent =
+`${project.title} | ${project.hoursRequired} hrs | Due: ${formattedDate}`;
+
+const completeBtn = document.createElement("button");
+completeBtn.textContent = "Complete";
+
+completeBtn.onclick = () => completeProject(project.id);
+
+li.appendChild(projectText);
+li.appendChild(completeBtn);
+
+list.appendChild(li);
   });
 }
 
