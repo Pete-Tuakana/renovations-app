@@ -173,6 +173,16 @@ document.getElementById("addProjectBtn").addEventListener("click", async () => {
   loadProjects();
 });
 
+import { deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+async function completeProject(projectId) {
+
+  await deleteDoc(doc(db, "projects", projectId));
+
+  loadProjects();
+
+}
+
 // Initial load
 loadProjects();
 
