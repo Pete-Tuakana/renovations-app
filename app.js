@@ -131,6 +131,7 @@ async function loadProjects() {
   const querySnapshot = await getDocs(collection(db, "projects"));
   querySnapshot.forEach((doc) => {
   const data = doc.data();
+    data.id = doc.id;
 
   // Skip incomplete records
   if (!data.title || !data.importance || !data.hoursRequired || !data.deadline) {
