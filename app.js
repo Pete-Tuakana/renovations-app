@@ -58,38 +58,38 @@ function filterByAvailableTime() {
     return;
   }
 
+  const list = document.getElementById("projectList");
+  const recommendationBox = document.getElementById("recommendedProject");
+
+  list.innerHTML = "";
+
   const filteredProjects = projects.filter(project =>
     project.hoursRequired <= availableTime
   );
 
-  const list = document.getElementById("projectList");
-  list.innerHTML = "";
-
   filteredProjects.sort((a, b) => b.priority - a.priority);
 
-const recommendationBox = document.getElementById("recommendedProject");
+  if (filteredProjects.length === 0) {
 
-if (filteredProjects.length > 0) {
+    recommendationBox.textContent = "No projects fit the available time.";
+    return;
 
+  }
+
+  // 🎯 Set recommendation
   const bestProject = filteredProjects[0];
 
-  const date = new Date(bestProject.deadline);
-  const formattedDate = date.toLocaleDateString("en-AU", {
+  const bestDate = new Date(bestProject.deadline);
+  const bestFormattedDate = bestDate.toLocaleDateString("en-AU", {
     day: "numeric",
     month: "short",
     year: "numeric"
   });
 
   recommendationBox.textContent =
-    `${bestProject.title} | ${bestProject.hoursRequired} hrs | Due: ${formattedDate}`;
+    `${bestProject.title} | ${bestProject.hoursRequired} hrs | Due: ${bestFormattedDate}`;
 
-} else {
-
-  recommendationBox.textContent =
-    "No projects fit the available time.";
-
-}
-  
+  // Render filtered list
   filteredProjects.forEach(project => {
 
     const li = document.createElement("li");
