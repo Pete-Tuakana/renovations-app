@@ -4,6 +4,28 @@ body {
   margin: 0;
 }
 
+.form-section {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 16px;
+}
+
 /* Header */
 header {
   background-color: #0f4f4a;
