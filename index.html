@@ -15,21 +15,25 @@
 
 <div class="container">
 
-  <section>
-    <h2>Add Project</h2>
-    <input type="text" id="title" placeholder="Project title">
-    
-    <label>Importance (1–5)</label>
-    <input type="number" id="importance" min="1" max="5">
+<div class="form-section">
 
-    <label>Hours Required</label>
-    <input type="number" id="hoursRequired" min="1">
+<h2>Add Project</h2>
 
-    <label>Deadline</label>
-    <input type="date" id="deadline">
+<label>Project Title</label>
+<input id="titleInput" type="text" placeholder="Project title">
 
-    <button id="addProjectBtn">Add Project</button>
-  </section>
+<label>Importance (1–5)</label>
+<input id="importanceInput" type="number" min="1" max="5">
+
+<label>Hours Required</label>
+<input id="hoursInput" type="number">
+
+<label>Deadline</label>
+<input id="deadlineInput" type="date">
+
+<button onclick="addProject()">Add Project</button>
+
+</div>
   
 <h2>Available Time</h2>
 
