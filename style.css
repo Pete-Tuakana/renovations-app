@@ -4,28 +4,6 @@ body {
   margin: 0;
 }
 
-.form-section {
-  margin-bottom: 30px;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  margin-top: 12px;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 4px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-button {
-  margin-top: 16px;
-}
-
 /* Header */
 header {
   background-color: #0f4f4a;
@@ -40,17 +18,28 @@ header {
   padding: 15px;
 }
 
-/* Mission card */
-.mission-card {
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+/* Form layout */
+.form-section {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
 /* Buttons */
 button {
+  margin-top: 16px;
   background-color: #ffb300;
   border: none;
   padding: 10px 14px;
@@ -63,10 +52,11 @@ button:hover {
   background-color: #ffa000;
 }
 
-/* Inputs */
-input {
-  padding: 8px;
-  margin: 6px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+/* Mission card */
+.mission-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
