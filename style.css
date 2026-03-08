@@ -1,35 +1,50 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #f4f4f4;
+  background-color: #f2f2f2;
+  margin: 0;
 }
 
-h1 {
-  text-align: center;
-}
-
-section {
-  background: white;
+/* Header */
+header {
+  background-color: #0f4f4a;
+  color: white;
   padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 6px;
+  text-align: center;
+  font-size: 20px;
 }
 
-input, button {
-  display: block;
-  margin-bottom: 10px;
-  padding: 6px;
+/* Main container */
+.container {
+  padding: 15px;
 }
 
+/* Mission card */
+.mission-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
 button {
+  background-color: #ffb300;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.mission-card {
-  background: #e8f7ee;
-  border-left: 6px solid #2ecc71;
-  padding: 15px;
-  margin-bottom: 20px;
+button:hover {
+  background-color: #ffa000;
+}
+
+/* Inputs */
+input {
+  padding: 8px;
+  margin: 6px 0;
   border-radius: 6px;
-  font-size: 18px;
+  border: 1px solid #ccc;
 }
