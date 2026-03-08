@@ -73,7 +73,7 @@ function renderProjects() {
 
 function filterByAvailableTime() {
 
-  const availableTime = parseFloat(document.getElementById("availableTime").value);
+  const availableTime = parseFloat(document.getElementById("availableTimeInput").value);
 
   if (!availableTime) {
     alert("Enter available time.");
