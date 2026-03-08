@@ -156,10 +156,11 @@ async function loadProjects() {
 
 // Add Project
 document.getElementById("addProjectBtn").addEventListener("click", async () => {
-  const title = document.getElementById("title").value;
-  const importance = parseInt(document.getElementById("importance").value);
-  const hoursRequired = parseInt(document.getElementById("hoursRequired").value);
-  const deadline = document.getElementById("deadline").value;
+
+  const title = document.getElementById("titleInput").value;
+  const importance = parseInt(document.getElementById("importanceInput").value);
+  const hoursRequired = parseInt(document.getElementById("hoursInput").value);
+  const deadline = document.getElementById("deadlineInput").value;
 
   if (!title || !importance || !hoursRequired || !deadline) {
     alert("Please fill in all fields.");
@@ -175,10 +176,10 @@ document.getElementById("addProjectBtn").addEventListener("click", async () => {
 
   await addDoc(collection(db, "projects"), project);
 
-  document.getElementById("title").value = "";
-  document.getElementById("importance").value = "";
-  document.getElementById("hoursRequired").value = "";
-  document.getElementById("deadline").value = "";
+  document.getElementById("titleInput").value = "";
+  document.getElementById("importanceInput").value = "";
+  document.getElementById("hoursInput").value = "";
+  document.getElementById("deadlineInput").value = "";
 
   loadProjects();
 });
